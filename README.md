@@ -1,2 +1,16 @@
-# stackstorm-algosec
-StackStorm integration pack for the AlgoSec Firewall Management Platform
+# algosec Integration Pack
+
+## Configuration
+TODO: Describe configuration
+
+
+# Sensors
+
+## Example Sensor
+TODO: Describe sensor
+
+
+# Actions
+
+## example
+TODO: Describe action

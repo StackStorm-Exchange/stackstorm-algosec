@@ -1,0 +1,11 @@
+---
+ref: algosec
+name: algosec
+description: Pack with actions for AlgoSec Firewall Analizer, FireFlow, Business Flow apis
+keywords:
+    - AlgoSec
+    - Firewall
+    - Networking
+version: 0.1.0
+author: Encore Technologies
+email: code@encore.tech
