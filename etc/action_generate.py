@@ -162,12 +162,8 @@ class ActionGenerator(object):
         op_inputs = []
         op_entry_point = "lib/run_operation.py"
 
-        if op_name == "Login":
+        if op_name == "authenticate":
             op_entry_point = "lib/run_login.py"
-        elif op_name == "Logout":
-            op_entry_point = "lib/run_logout.py"
-        elif op_name == "GetHistory":
-            op_entry_point = "lib/run_get_history.py"
 
         # Translate operation "inputs" in the SOAP WSDL into StackStorm action
         # parameters
@@ -177,29 +173,12 @@ class ActionGenerator(object):
             parameter_name = self.camel_case_to_snake_case(input_name)
             parameter_description = None
             parameter_type = None
-
-            if op_name == 'GetHistory' and parameter_name == 'username':
-                # GetHistory operation has a conflicting parameter name 'username'
-                # so we manually change it to user_name here and then back in the
-                # run_operation.py
-                parameter_name = 'user_name'
-            elif op_name == 'Login' and parameter_name == 'server':
-                # Utilize our existing 'server' parameter on the action template
-                continue
-            elif op_name == 'Login' and parameter_name == 'password':
-                # Utilize our existing 'password' parameter on the action template
-                continue
-            elif op_name == 'Login' and parameter_name == 'login_name':
+            if op_name == 'authenticate' and parameter_name == 'username':
                 # Utilize our existing 'username' parameter on the action template
                 continue
-            elif parameter_name == "session":
-                # The session input is present on every operation.
-                # We want to make this optional, and if unspecified we simply
-                # perform a login immediately prior to executing the operation.
-                parameter_required = False
-                parameter_description = ('"Login session cookie. If empty then'
-                                         ' username/password will be used to login'
-                                         ' prior to running this operation"')
+            elif op_name == 'authenticate' and parameter_name == 'password':
+                # Utilize our existing 'password' parameter on the action template
+                continue
 
             # Ensure that this parameter doesn't conflict with any of the ones
             # we have defined in the aciton template
@@ -248,12 +227,6 @@ class ActionGenerator(object):
         # service = next(s for s in client.wsdl.services.values() if s.name == "Service")
         # port = next(p for p in service.ports.values() if p.name != "ServiceSoap12")
         service = next(s for s in client.wsdl.services.values() if s.name == "FireFlowWebServiceService")
-        print "Services: {0}".format(service)
-        print "Ports: {0}".format(service.ports.values())
-        for p in service.ports.values():
-            print type(p)
-            print p
-            print p.name
         port = next(p for p in service.ports.values() if p.name == "FireFlowWebServicePort")
 
         for operation in port.binding._operations.values():
