@@ -5,7 +5,7 @@
 # Usage:
 #
 # Files generated
-#  actions/*.yaml (one for each operation in etc/menandmice_wsdl.xml)
+#  actions/*.yaml (one for each operation in etc/algosec_wsdl.xml)
 #
 
 import argparse
@@ -23,9 +23,14 @@ import zeep
 
 ACTION_TEMPLATE_PATH = "./action_template.yaml.j2"
 ACTION_DIRECTORY = "../actions"
-WSDL_URL = "https://{0}/WebServices/FireFlow.wsdl"
-WSDL_GLOB_PATH = "./fireflow_wsdl_*.xml"
-MM_API_URL = "http://api.menandmice.com/8.1.0/#{}"
+API_ENDPOINTS = [
+    {'NAME': "fireflow",
+    "WSDL_ENDPOINT": "WebServices/FireFlow.wsdl",
+    "WSDL_GLOB_PATH": "./fireflow_wsdl_*.xml"},
+    {'NAME': "afa",
+    "WSDL_ENDPOINT": "AFA/php/ws.php?wsdl",
+    "WSDL_GLOB_PATH": "./afa_wsdl_*.xml"},
+]
 
 
 class Cli:
@@ -41,7 +46,7 @@ class Cli:
                                              help="Deploy packs to a host")
         # connection args
         fetch_parser.add_argument('-H', '--hostname',
-                                  help='Hostname/IP of Men&Mice Server',
+                                  help='Hostname/IP of AlgoSec Server',
                                   required=True)
         fetch_parser.add_argument('-w', '--wsdl-path',
                                   help="WSDL file to write to")
@@ -65,17 +70,17 @@ class Cli:
 
     def examples(self):
         print "examples:\n"\
-            "  # fetch the latest WSDL from the Men&Mice server/\n"\
+            "  # fetch the latest WSDL from the AlgoSec server/\n"\
             "  ./action_generate.py fetch-wsdl -H host.domain.tld\n"\
             "\n"\
-            "  # fetch the latest WSDL from the Men&Mice server to a specific name/\n"\
-            "  ./action_generate.py fetch-wsdl -H host.domain.tld -w menandmice_wsdl_new.xml\n"\
+            "  # fetch the latest WSDL from the AlgoSec server to a specific name/\n"\
+            "  ./action_generate.py fetch-wsdl -H host.domain.tld -w algosec_wsdl_new.xml\n"\
             "\n"\
             "  # gerenate actions from the latest WSDL/\n"\
             "  ./action_generate.py generate\n"\
             "\n"\
             "  # gerenate actions into an alternate directory from a specific WSDL/\n"\
-            "  ./action_generate.py generate -d ../actions_new -w menandmice_wsdl_new.xml\n"\
+            "  ./action_generate.py generate -d ../actions_new -w algosec_wsdl_new.xml\n"\
 
 
 
@@ -93,16 +98,18 @@ class ActionGenerator(object):
         return params
 
     def fetch_wsdl(self):
-        wsdl_url = WSDL_URL.format(self.cli_args.hostname)
-        response = requests.get(wsdl_url, verify=False)
-        xml = minidom.parseString(response.text)
-        xml_str = xml.toprettyxml(indent="   ")
+        for wsdl in API_ENDPOINTS:
+            wsdl_url = "https://{0}/{1}".format(self.cli_args.hostname, wsdl['WSDL_ENDPOINT'])
+            response = requests.get(wsdl_url, verify=False)
+            xml = minidom.parseString(response.text)
+            xml_str = xml.toprettyxml(indent="   ")
 
-        t = datetime.datetime.now()
-        date_str = t.strftime('%Y_%m_%d')
+            t = datetime.datetime.now()
+            date_str = t.strftime('%Y_%m_%d')
 
-        with open("fireflow_wsdl_{}.xml".format(date_str), "w") as f:
-            f.write(xml_str)
+            filename = wsdl['WSDL_GLOB_PATH'].replace('*', date_str)
+            with open(filename, "w") as f:
+                f.write(xml_str)
 
     def camel_case_to_snake_case(self, name):
         s0 = name.replace('-', '')
@@ -152,9 +159,7 @@ class ActionGenerator(object):
         type_json = type_json.replace('\n', '\n       ')
         return (">\n"
                 "      'type: {0}\n"
-                "       reference: {1}\n"
-                "       json_schema: {2}'").format(type_elem.type.name,
-                                                   MM_API_URL.format(type_elem.type.name),
+                "       json_schema: {1}'").format(type_elem.type.name,
                                                    type_json)
 
     def generate_operation(self, operation):
@@ -163,6 +168,8 @@ class ActionGenerator(object):
         op_entry_point = "lib/run_operation.py"
 
         if op_name == "authenticate":
+            op_entry_point = "lib/run_login.py"
+        elif op_name == "connect":
             op_entry_point = "lib/run_login.py"
 
         # Translate operation "inputs" in the SOAP WSDL into StackStorm action
@@ -173,12 +180,46 @@ class ActionGenerator(object):
             parameter_name = self.camel_case_to_snake_case(input_name)
             parameter_description = None
             parameter_type = None
+            parameter_default = None
             if op_name == 'authenticate' and parameter_name == 'username':
                 # Utilize our existing 'username' parameter on the action template
                 continue
             elif op_name == 'authenticate' and parameter_name == 'password':
                 # Utilize our existing 'password' parameter on the action template
                 continue
+            elif op_name == 'authenticate' and parameter_name == 'domain':
+                # Utilize our existing 'password' parameter on the action template
+                continue
+            elif op_name == 'connect' and parameter_name == 'password':
+                # Utilize our existing 'password' parameter on the action template
+                continue
+            elif op_name == 'connect' and parameter_name == 'user_name':
+                # Utilize our existing 'username' parameter on the action template
+                continue
+            elif op_name == 'connect' and parameter_name == 'domain':
+                # Utilize our existing 'username' parameter on the action template
+                continue
+            elif op_name == 'create_user' and parameter_name == 'password':
+                # This is a new password for creating a new user.
+                parameter_name = 'user_password'
+                parameter_required = True
+                parameter_description = ('"Password for the new user"')
+            elif op_name == 'update_user' and parameter_name == 'password':
+                # This is a new password for creating a new user.
+                parameter_name = 'user_password'
+                parameter_required = True
+                parameter_description = ('"New password to update the user"')
+            elif parameter_name == "session_id":
+                # The session input is present on every operation.
+                # We want to make this optional, and if unspecified we simply
+                # perform a login immediately prior to executing the operation.
+                parameter_required = False
+                parameter_description = ('"Login session cookie. If empty then'
+                                         ' username/password will be used to login'
+                                         ' prior to running this operation"')
+            elif parameter_name == "ffws_header":
+                # Adding a default value to ffws_header information
+                parameter_default = '{"version":"1.0", "opaque":""}'
 
             # Ensure that this parameter doesn't conflict with any of the ones
             # we have defined in the aciton template
@@ -199,38 +240,42 @@ class ActionGenerator(object):
                               'parameter_name': parameter_name,
                               'parameter_type': parameter_type,
                               'parameter_description': parameter_description,
-                              'parameter_required': parameter_required})
+                              'parameter_required': parameter_required,
+                              'parameter_default': parameter_default})
 
         # end for each input
-        op_api_ref_url = MM_API_URL.format(op_name)
-        op_description = ("Invokes the Men&Mice SOAP command {0} ({1})"
-                          .format(op_name, op_api_ref_url))
+        op_description = ("Invokes the AlgoSec SOAP command {0}"
+                          .format(op_name))
         op_context = {'operation_camel_case': op_name,
-                      'operation_snake_case': self.camel_case_to_snake_case(op_name),
+                      'operation_snake_case': "{0}_{1}".format(self.wsdl['NAME'],
+                        self.camel_case_to_snake_case(op_name)),
                       'operation_description': op_description,
                       'operation_entry_point': op_entry_point,
-                      'operation_parameters': op_inputs}
+                      'operation_parameters': op_inputs,
+                      'operation_wsdl_endpoint': self.wsdl['WSDL_ENDPOINT']}
         self.render_action(op_context)
 
     def generate(self):
-        wsdl_path = None
-        if self.cli_args.wsdl_path:
-            wsdl_path = self.cli_args.wsdl_path
-        else:
-            wsdl_files = glob.glob(WSDL_GLOB_PATH)
-            # find newest wsdl (by name)
-            wsdl_path = max(wsdl_files)
+        for wsdl in API_ENDPOINTS:
+            self.wsdl = wsdl
+            wsdl_path = None
+            if self.cli_args.wsdl_path:
+                wsdl_path = self.cli_args.wsdl_path
+            else:
+                wsdl_files = glob.glob(wsdl['WSDL_GLOB_PATH'])
+                # find newest wsdl (by name)
+                wsdl_path = max(wsdl_files)
 
-        client = zeep.Client(wsdl=wsdl_path)
+            client = zeep.Client(wsdl=wsdl_path)
 
-        # Parse Operations from the WSDL file
-        # service = next(s for s in client.wsdl.services.values() if s.name == "Service")
-        # port = next(p for p in service.ports.values() if p.name != "ServiceSoap12")
-        service = next(s for s in client.wsdl.services.values() if s.name == "FireFlowWebServiceService")
-        port = next(p for p in service.ports.values() if p.name == "FireFlowWebServicePort")
+            # Parse Operations from the WSDL file
+            #service = next(s for s in client.wsdl.services.values() if s.name == "FireFlowWebServiceService")
+            service = client.wsdl.services.values()[0]
+            #port = next(p for p in service.ports.values() if p.name == "FireFlowWebServicePort")
+            port = service.ports.values()[0]
 
-        for operation in port.binding._operations.values():
-            self.generate_operation(operation)
+            for operation in port.binding._operations.values():
+                self.generate_operation(operation)
 
     def run(self):
         if self.cli_args.command == "fetch-wsdl":
