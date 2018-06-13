@@ -1,0 +1,54 @@
+---
+description: "{{ operation_description }}"
+enabled: true
+runner_type: "python-script"
+entry_point: {{ operation_entry_point }}
+name: {{ operation_snake_case }}
+parameters:
+  operation:
+    type: string
+    default: {{ operation_camel_case }}
+    immutable: true
+  connection:
+    type: string
+    description: "Name of <connection> from this pack's configuration that specifies how to connect to a AlgoSec server."
+    required: false
+  domain:
+    description: "Optional override of the AlgoSec domain in <connection> (required if <connection> is not specified)."
+    type: string
+    required: false
+  server:
+    type: string
+    description: "Optional override of the AlgoSec server in <connection> (required if <connection> is not specified)."
+    required: false
+  username:
+    type: string
+    description: "Optional override of the AlgoSec username in <connection> (example: username@domain.tld) (required if <connection> is not specified)."
+    required: false
+  password:
+    type: string
+    description: "Optional override of the AlgoSec password in <connection>. (required if <connection> is not specified)"
+    required: false
+    secret: true
+  port:
+    type: integer
+    description: "Optional override of the AlgoSec port in <connection>."
+    required: false
+  transport:
+    type: string
+    description: "Optional override of the AlgoSec transport in <connection>."
+    required: false
+  wsdl_endpoint:
+    type: string
+    description: "Optional override of the AlgoSec wsdl_endpoint in <connection>."
+    default: {{ operation_wsdl_endpoint }}
+{% for param in operation_parameters %}  {{ param.parameter_name }}:
+    type: {{ param.parameter_type }}
+    required: {{ param.parameter_required | lower }}
+  {%- if param.parameter_description %}
+    description: {{ param.parameter_description }}
+  {%- endif %}
+  {%- if param.parameter_default %}
+    default: {{ param.parameter_default }}
+  {%- endif %}
+{% endfor %}

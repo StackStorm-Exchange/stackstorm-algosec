@@ -1,0 +1,13 @@
+---
+algosec:
+  base:
+    server: abc
+    username: Administrator
+    password: PassworD!
+  full:
+    server: abc
+    username: Administrator
+    password: PassworD!
+    port: 1234
+    transport: https
+    wsdl_endpoint: WebServices/FireFlow.wsdl

@@ -1,0 +1,11 @@
+---
+algosec:
+  missing-username:
+    username: Administrator
+    password: PassworD!
+  missing-username:
+    server: algosec.domian.tld
+    password: PassworD!
+  missing-password:
+    server: algosec.domian.tld
+    username: Administrator
