@@ -4,8 +4,10 @@
 
 # <a name="Introduction"></a> Introduction
 
-This pack provides integration with the AlgoSec Firewall Analyzer and FireFlow SOAP API.
-Actions within this back mirror one-for-one the "commands" in the SOAP API
+This pack provides integration with several [AlgoSec](https://www.algosec.com) products
+including the [AlgoSec Firewall Analyzer](https://www.algosec.com/firewall-analyzer/) SOAP API
+and [AlgoSec FireFlow](https://www.algosec.com/fireflow/) SOAP API.
+Actions within this pack mirror one-for-one the `commands` in the SOAP API
 Data types and payloads also mirror one-for-one.
 
 # <a name="QuickStart"></a> Quick Start
@@ -226,4 +228,4 @@ This pays off big time when running multiple commands in sequence.
 | 0.1.0        | v2017.3         |
 
 # Future
-- Implement business flow actions
+- Implement [AlgoSec BusinessFlow](https://www.algosec.com/product-businessflow/) actions
