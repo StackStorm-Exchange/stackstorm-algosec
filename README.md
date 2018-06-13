@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/EncoreTechnologies/stackstorm-algosec.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/EncoreTechnologies/stackstorm-algosec) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build Status](https://circleci.com/gh/StackStorm-Exchange/stackstorm-algosec.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/StackStorm-Exchange/stackstorm-algosec) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # AlgoSec Integration Pack
 
