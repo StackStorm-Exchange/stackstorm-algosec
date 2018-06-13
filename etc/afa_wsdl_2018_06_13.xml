@@ -1,0 +1,7611 @@
+<?xml version="1.0" ?>
+<definitions name="FirewallAnalyzerWebService" targetNamespace="https://www.algosec.com/afa-ws" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="https://www.algosec.com/afa-ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   
+  
+   <!-- TYPES -->
+   
+  
+   <types>
+      
+    
+      <xsd:schema targetNamespace="https://www.algosec.com/afa-ws" version="1.0" xmlns:tns="https://www.algosec.com/afa-ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         
+      
+         <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+         
+
+         <!-- Groups -->
+         
+  
+         <xsd:complexType name="Groups">
+            
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="GroupsID" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /Groups -->
+         
+
+         <!-- Rule -->
+         
+  
+         <xsd:complexType name="Rule">
+            
+      
+            <xsd:sequence>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="DeviceID" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Report" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Analyzed_On" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Document" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="RuleID" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="RuleNum" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Rule" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Source" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="User" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Destination" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Hip_Profile" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Application" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Service" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Services" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Action" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Enable" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Track" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Time" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="VPN" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Interface" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Section_Header" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Global" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Log" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="From" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="To" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Schedule" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Comment" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Comments" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="ACL" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="LineNum" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Internal_Name" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="UID" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Line" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Link" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Profile" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Options" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Target" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Policy" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Scope" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Install" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Application_Defense" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Authentication" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Ports" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Description" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Ips_Signature_Group" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Ips_Response" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Trusted_Source" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Source_Nat" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Destination_Nat" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Destination_Redirect" type="xsd:string"/>
+               
+  
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="LastUse" type="xsd:string"/>
+               
+      
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /Rule -->
+         
+
+         <!-- Rules -->
+         
+  
+         <xsd:complexType name="Rules">
+            
+    
+            <xsd:sequence>
+               
+    
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Rule" type="tns:Rule"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /Rules -->
+         
+
+
+         <xsd:complexType name="NatResult">
+            
+ 
+            <xsd:sequence>
+               
+   
+               <xsd:element maxOccurs="1" minOccurs="1" name="DeviceName" type="xsd:string"/>
+               
+   
+               <xsd:element maxOccurs="1" minOccurs="1" name="PreNat" type="xsd:string"/>
+               
+   
+               <xsd:element maxOccurs="1" minOccurs="1" name="PostNat" type="xsd:string"/>
+               
+   
+               <xsd:element maxOccurs="1" minOccurs="1" name="Type" type="xsd:string"/>
+               
+  
+            </xsd:sequence>
+            
+ 
+         </xsd:complexType>
+         
+
+ 
+         <xsd:complexType name="NatResults">
+            
+  
+            <xsd:sequence>
+               
+
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="NatResult" type="tns:NatResult"/>
+               
+  
+            </xsd:sequence>
+            
+
+         </xsd:complexType>
+         
+
+
+
+         <!-- Searchfor -->
+         
+  
+         <xsd:complexType name="SearchParam">
+            
+    
+            <xsd:sequence>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="1" name="Search" type="xsd:string"/>
+               
+    
+               <xsd:element maxOccurs="1" minOccurs="0" name="Field" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /Searchfor -->
+         
+
+         <!-- Ports -->
+         
+  
+         <xsd:complexType name="Ports">
+            
+    
+            <xsd:sequence>
+               
+    
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Port" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /Ports -->
+         
+
+         <!-- ServiceInfo -->
+         
+  
+         <xsd:complexType name="ServiceInfo">
+            
+      
+            <xsd:sequence>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+               
+        
+               <!--<xsd:element name="Service" type="tns:ServiceInfo" minOccurs="1" maxOccurs="1"/>-->
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="xsd:string"/>
+               
+        
+               <!--<xsd:element name="Ports" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>-->
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="1" name="Ports" type="tns:Ports"/>
+               
+      
+            </xsd:sequence>
+                
+  
+         </xsd:complexType>
+         
+
+         <!-- /ServiceInfo -->
+         
+
+
+         <!-- ChangeOverTimeReport -->
+         
+      
+         <xsd:element name="ChangeOverTimeReportRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+                    
+                  <xsd:element maxOccurs="1" minOccurs="1" name="StartDate">
+                     
+                            
+                     <xsd:annotation>
+                        
+                              
+                        <xsd:documentation>License Expiration date in format YYYY-MM-DD.
+For example 2013-02-25</xsd:documentation>
+                        
+                            
+                     </xsd:annotation>
+                     
+                            
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="xsd:date">
+                           
+              
+                           <xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EndDate">
+                     
+                            
+                     <xsd:annotation>
+                        
+                              
+                        <xsd:documentation>License Expiration date in format YYYY-MM-DD.
+For example 2013-02-25</xsd:documentation>
+                        
+                            
+                     </xsd:annotation>
+                     
+                            
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="xsd:date">
+                           
+              
+                           <xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="IsLinkReturnType" type="tns:AfaBoolean"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+      
+         <xsd:element name="ChangeOverTimeReportResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Output" nillable="true" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /ChangeOverTimeReport -->
+         
+
+
+
+         <!-- GetNatDiscovery -->
+         
+      
+         <xsd:element name="GetNatDiscoveryRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityName" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="IpAddress" type="tns:AfaNonEmptyString"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="PreNat" type="tns:AfaBoolean"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="PostNat" type="tns:AfaBoolean"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Source" type="tns:AfaBoolean"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Destination" type="tns:AfaBoolean"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="GetNatDiscoveryResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+               
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="SourceNat" type="tns:NatResults"/>
+                  
+              
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="DestinationNat" type="tns:NatResults"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /GetNatDiscovery -->
+         
+
+
+
+         <!-- Connection -->
+         
+      
+         <xsd:element name="ConnectRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="UserName" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Domain" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+      
+         <xsd:element name="ConnectResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" nillable="true" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /Connection -->
+         
+
+
+         <!-- License -->
+         
+      
+         <xsd:element name="LicenseRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:all>
+          </xsd:all>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+      
+         <xsd:element name="LicenseResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Modules" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Expires" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Issued_on" type="xsd:string"/>
+                  
+           
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /License -->
+         
+
+      
+         <xsd:element name="ErrorDetails">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:all>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="0" name="code" type="xsd:int"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="description" type="xsd:string"/>
+                  
+          
+               </xsd:all>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+
+
+         <!-- QUERY -->
+         
+      
+         <xsd:element name="QueryResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="QueryUIResult" nillable="true" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="QueryResult" nillable="true" type="tns:QueryData"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="QueryRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="QueryInput" type="tns:QueryRequestData"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="0" name="QueryTarget" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+      
+         <xsd:complexType name="QueryRequestData">
+            
+        
+            <xsd:sequence>
+               
+            
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Source" type="xsd:string"/>
+               
+            
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Destination" type="xsd:string"/>
+               
+            
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Service" type="xsd:string"/>
+               
+            
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="User" type="xsd:string"/>
+               
+            
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Application" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+
+      
+         <xsd:complexType name="QueryData">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="QueryDescription" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="QueryItem" type="tns:QueryValueResults"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="FipResult" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="QueryResult" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="QueryHTMLPath" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+      
+         <xsd:complexType name="QueryValueResults">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Device" type="tns:DeviceResult"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+      
+         <xsd:complexType name="DeviceResult">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="IsAllowed" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="DeviceName" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Rules" type="tns:QueryRules"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+      
+         <xsd:complexType name="QueryRules">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="Rule" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Service" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Source" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Source_Nat" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Destination" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Destination_Nat" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="Install" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="Action" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="ACL" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+      
+         <xsd:complexType name="QueryRule">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="parameter" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+
+         <!-- /QUERY -->
+         
+
+
+
+         <!-- HostGroups -->
+         
+     
+         <xsd:complexType name="HostGroups">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="CanonizedName" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="IP" type="tns:AfaNonEmptyString"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="ClassName" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Members" type="tns:AfaNonEmptyString"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="0" name="Zone" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+     
+         </xsd:complexType>
+         
+
+         <!-- /HostGroups -->
+         
+
+      
+         <xsd:complexType name="KeyValueData">
+            
+        
+            <xsd:sequence>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="key" type="xsd:string"/>
+               
+          
+               <xsd:element maxOccurs="1" minOccurs="1" name="value" type="xsd:string"/>
+               
+        
+            </xsd:sequence>
+            
+      
+         </xsd:complexType>
+         
+
+
+      
+         <xsd:element name="Disconnect">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:all>
+          </xsd:all>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="AuthToken" nillable="false" type="tns:AuthToken"/>
+         
+      
+         <xsd:element name="DisconnectResponse" nillable="false" type="tns:int"/>
+         
+      
+         <xsd:element name="DisconnectRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="IsSessionAliveResponse" nillable="false" type="tns:int"/>
+         
+      
+         <xsd:element name="IsSessionAliveRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:simpleType name="AuthToken">
+            
+        
+            <xsd:restriction base="xsd:string">
+               
+          
+               <xsd:pattern value="[a-z0-9]{32}"/>
+               
+        
+            </xsd:restriction>
+            
+      
+         </xsd:simpleType>
+         
+
+      
+         <xsd:simpleType name="int">
+            
+        
+            <xsd:restriction base="xsd:int">
+    </xsd:restriction>
+            
+      
+         </xsd:simpleType>
+         
+
+      
+         <xsd:simpleType name="AfaBoolean">
+            
+        
+            <xsd:restriction base="tns:int">
+               
+          
+               <xsd:minInclusive value="0"/>
+               
+          
+               <xsd:maxInclusive value="1"/>
+               
+        
+            </xsd:restriction>
+            
+      
+         </xsd:simpleType>
+         
+
+      
+         <xsd:simpleType name="AfaNonEmptyString">
+            
+    
+            <xsd:restriction base="xsd:string">
+               
+      
+               <xsd:minLength value="1"/>
+               
+    
+            </xsd:restriction>
+            
+  
+         </xsd:simpleType>
+         
+
+
+         <!-- CreateDomain -->
+         
+  
+         <xsd:element name="CreateDomainRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DomainName" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Description" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="TemplateDomainSettings" type="tns:TemplateDomainSettingsType"/>
+                         
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LicenseFirewallsQuota">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:int">
+                           
+              
+                           <xsd:minInclusive value="0"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LicenseRoutersQuota">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:int">
+                           
+              
+                           <xsd:minInclusive value="0"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="LicenseExpirationDate">
+                     
+                            
+                     <xsd:annotation>
+                        
+                              
+                        <xsd:documentation>License Expiration date in format YYYY-MM-DD.
+For example 2013-02-25</xsd:documentation>
+                        
+                            
+                     </xsd:annotation>
+                     
+                            
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="xsd:date">
+                           
+              
+                           <xsd:pattern value="\d{4}-\d{2}-\d{2}"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="LicenseModule" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="CreateDomainResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+          
+  
+         <xsd:complexType name="TemplateDomainSettingsType">
+            
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="TemplateDomainName" type="tns:AfaNonEmptyString"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="CopyRiskProfiles" type="tns:AfaBoolean"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="CopyRoles" type="tns:AfaBoolean"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+  
+ 
+         <!-- /CreateDomain -->
+         
+
+
+
+         <!-- SetConfiguration -->
+         
+  
+         <xsd:element name="SetConfigurationRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AttributeName" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AttributeValue" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="SetConfigurationResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+
+         <!-- /SetConfiguration -->
+         
+
+
+         <!-- RisksSummary -->
+         
+  
+         <xsd:element name="RisksSummaryRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="RisksSummaryResponse">
+            
+      
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Date" type="xsd:string"/>
+                  
+        
+                  <xsd:element name="High" type="xsd:string"/>
+                  
+        
+                  <xsd:element name="Suspected_high" type="xsd:string"/>
+                  
+        
+                  <xsd:element name="Medium" type="xsd:string"/>
+                  
+        
+                  <xsd:element name="Low" type="xsd:string"/>
+                  
+        
+                  <xsd:element name="Security_Rating" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /RisksSummary -->
+         
+
+
+         <!-- CreateDeviceGroup -->
+         
+  
+         <xsd:element name="CreateDeviceGroupRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="GroupName" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="DeviceID" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="CreateDeviceGroupResponse" type="tns:AfaNonEmptyString"/>
+         
+ 
+         <!-- /CreateDeviceGroup -->
+         
+
+
+         <!-- AddDeviceToGroup -->
+         
+  
+         <xsd:element name="AddDeviceToGroupRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="GroupID" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="AddDeviceToGroupResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+ 
+         <!-- /AddDeviceToGroup -->
+         
+
+
+         <!-- SetSchedulerJob -->
+         
+  
+         <xsd:element name="SetSchedulerJobRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="JobName" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:AfaNonEmptyString">
+                           
+              
+                           <xsd:enumeration value="device"/>
+                           
+              
+                           <xsd:enumeration value="group"/>
+                           
+              
+                           <xsd:enumeration value="matrix"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="BaseAnalysisOnExistingReports" nillable="false" type="tns:AfaBoolean"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Recurrence">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="xsd:string">
+                           
+              
+                           <xsd:enumeration value="daily"/>
+                           
+              
+                           <xsd:enumeration value="weekly"/>
+                           
+              
+                           <xsd:enumeration value="upon_policy_inst"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Weekday">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:AfaNonEmptyString">
+                           
+              
+                           <xsd:enumeration value="Monday"/>
+                           
+              
+                           <xsd:enumeration value="Tuesday"/>
+                           
+              
+                           <xsd:enumeration value="Wednesday"/>
+                           
+              
+                           <xsd:enumeration value="Thursday"/>
+                           
+              
+                           <xsd:enumeration value="Friday"/>
+                           
+              
+                           <xsd:enumeration value="Saturday"/>
+                           
+              
+                           <xsd:enumeration value="Sunday"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Hour">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:int">
+                           
+              
+                           <xsd:minInclusive value="0"/>
+                           
+              
+                           <xsd:maxInclusive value="23"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Minutes">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:int">
+                           
+              
+                           <xsd:maxInclusive value="59"/>
+                           
+              
+                           <xsd:minInclusive value="0"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="SetSchedulerJobResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+ 
+         <!-- /SetSchedulerJob -->
+         
+   
+
+         <!-- DeleteSchedulerJob -->
+         
+  
+         <xsd:element name="DeleteSchedulerJobRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="JobName" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="DeleteSchedulerJobResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+ 
+         <!-- /DeleteSchedulerJob -->
+         
+   
+
+         <!-- StartAnalysis -->
+         
+  
+         <xsd:element name="StartAnalysisRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:AfaNonEmptyString">
+                           
+              
+                           <xsd:enumeration value="device"/>
+                           
+              
+                           <xsd:enumeration value="group"/>
+                           
+              
+                           <xsd:enumeration value="matrix"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="RiskProfile" type="tns:AfaNonEmptyString"/>
+                  
+        
+                  <xsd:element minOccurs="0" name="AvoidEmailNotification" nillable="false" type="tns:AfaBoolean"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="BaseAnalysisOnExistingReports" nillable="false" type="tns:AfaBoolean"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="StartAnalysisResponse" nillable="false" type="tns:AfaBoolean"/>
+         
+ 
+         <!-- /StartAnalysis -->
+         
+
+
+         <!-- GetEntityName -->
+         
+  
+         <xsd:element name="GetEntityNameRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:AfaNonEmptyString">
+                           
+              
+                           <xsd:enumeration value="device"/>
+                           
+              
+                           <xsd:enumeration value="group"/>
+                           
+              
+                           <xsd:enumeration value="matrix"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetEntityNameResponse" nillable="false" type="tns:AfaNonEmptyString"/>
+         
+ 
+         <!-- /GetEntityName -->
+         
+
+
+         <!-- GetEntityName -->
+         
+  
+         <xsd:element name="GetEntityIDRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType">
+                     
+          
+                     <xsd:simpleType>
+                        
+            
+                        <xsd:restriction base="tns:AfaNonEmptyString">
+                           
+              
+                           <xsd:enumeration value="device"/>
+                           
+              
+                           <xsd:enumeration value="group"/>
+                           
+              
+                           <xsd:enumeration value="matrix"/>
+                           
+            
+                        </xsd:restriction>
+                        
+          
+                     </xsd:simpleType>
+                     
+        
+                  </xsd:element>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityName" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetEntityIDResponse" nillable="false" type="tns:AfaNonEmptyString"/>
+         
+ 
+         <!-- /GetEntityName -->
+         
+
+
+         <!-- GetDevicesList -->
+         
+  
+         <xsd:element name="GetDevicesListRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <!-- <xsd:element name="EntityName" type="tns:AfaNonEmptyString" minOccurs="1" maxOccurs="1" /> -->
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+      
+         <xsd:element name="GetDevicesListResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="Device" nillable="true" type="tns:DeviceDataResult"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+  
+         <xsd:complexType name="DeviceDataResult">
+            
+      
+            <xsd:sequence>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="Brand" type="xsd:string"/>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="xsd:string"/>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="xsd:string"/>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="IP" type="xsd:string"/>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="DomainName" type="xsd:string"/>
+               
+        
+               <xsd:element maxOccurs="1" minOccurs="0" name="Policy" type="xsd:string"/>
+               
+      
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+ 
+         <!-- /GetDevicesList -->
+         
+
+
+         <!-- EditRuleDocumentation -->
+         
+  
+         <xsd:element name="EditRuleDocumentationRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RuleUid" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DocumentationColumn" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DocumentationData" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+    
+         <xsd:element maxOccurs="1" minOccurs="1" name="EditRuleDocumentationResponse" nillable="true" type="tns:int"/>
+         
+ 
+         <!-- /EditRuleDocumentation -->
+         
+
+ 
+         <!-- GetRuleDocumentation -->
+         
+  
+         <xsd:element name="GetRuleDocumentationRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RuleUid" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DocumentationColumn" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element maxOccurs="1" minOccurs="1" name="GetRuleDocumentationResponse" nillable="true" type="xsd:string"/>
+         
+ 
+         <!-- /GetRuleDocumentation -->
+         
+
+
+
+
+         <!-- GetAllHostGroups -->
+         
+        
+         <xsd:element name="GetAllHostGroupsRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetAllHostGroupsResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="HostGroup" nillable="true" type="tns:HostGroups"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetAllHostGroups -->
+         
+
+
+         <!-- GetHostGroups -->
+         
+        
+         <xsd:element name="GetHostGroupsRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetHostGroupsResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="HostGroup" nillable="true" type="tns:HostGroups"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetHostGroups -->
+         
+
+
+
+         <!-- GetHostGroupNameDevice -->
+         
+        
+         <xsd:element name="GetHostGroupNameDeviceRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="HostGroupName" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetHostGroupNameDeviceResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="HostGroup" nillable="true" type="tns:HostGroups"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetHostGroupsNameDevice -->
+         
+
+
+
+         <!-- GetAllServices -->
+         
+        
+         <xsd:element name="GetAllServicesRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetAllServicesResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+             
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="Service" nillable="true" type="tns:ServiceInfo"/>
+                   
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetAllServices -->
+         
+
+
+
+
+
+         <!-- GetParentDevice -->
+         
+        
+         <xsd:element name="GetParentDeviceRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetParentDeviceResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetParentDevice -->
+         
+
+
+
+
+
+         <!-- Get services by device -->
+         
+        
+         <xsd:element name="GetServicesDeviceRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetServicesDeviceResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+             
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="Service" nillable="true" type="tns:ServiceInfo"/>
+                   
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetServicesDevice -->
+         
+
+
+
+         <!-- Get services by name & device -->
+         
+        
+         <xsd:element name="GetServiceNameDeviceRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+      
+         <xsd:element name="GetServiceNameDeviceResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+             
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="Service" nillable="true" type="tns:ServiceInfo"/>
+                   
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+ 
+         <!-- /GetServices by name & device -->
+         
+
+
+         <!-- get all rules by device -->
+         
+  
+         <xsd:element name="GetRulesByDeviceRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+           
+  
+         <xsd:element name="GetRulesByDeviceResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Rules" type="tns:Rules"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /get all rules by device -->
+         
+
+
+         <!-- get all unused rules by device -->
+         
+  
+         <xsd:element name="GetUnusedRulesRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+           
+  
+         <xsd:element name="GetUnusedRulesResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Rules" type="tns:Rules"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /get all rules by device -->
+         
+
+
+         <!-- locate rule -->
+         
+  
+         <xsd:element name="SearchRuleRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="SearchFor" type="tns:SearchParam"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="ExactMatch" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="IncludeAny" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="SearchRuleResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Rules" type="tns:Rules"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /locate rule -->
+         
+
+
+         <!-- get groups -->
+         
+
+        
+         <xsd:element name="GetGroupsListRequest">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+        
+         <xsd:element name="GetGroupsListResponse">
+            
+                
+            <xsd:complexType>
+               
+                        
+               <xsd:sequence>
+                  
+                                
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Groups" type="tns:Groups"/>
+                  
+                        
+               </xsd:sequence>
+               
+                
+            </xsd:complexType>
+            
+        
+         </xsd:element>
+         
+
+
+         <!--/get groups -->
+         
+
+
+
+         <!-- get group -->
+         
+  
+         <xsd:element name="GetGroupContentRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="GroupID" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetGroupContentResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="Device" nillable="true" type="tns:DeviceDataResult"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /get group -->
+         
+
+
+
+         <!-- device statistics -->
+         
+  
+         <xsd:element name="GetDeviceStatisticsRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetDeviceStatisticsResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Statistics" nillable="true" type="tns:StatsData"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:complexType name="StatsData">
+            
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="StatType" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="StatName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="StatValue" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- /device statistics -->
+         
+
+
+         <!-- get_members_by_device -->
+         
+  
+         <xsd:element name="GetMembersByDeviceRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetMembersByDeviceResponse">
+            
+            
+            <xsd:complexType>
+               
+    
+               <xsd:sequence>
+                  
+      
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Member" nillable="true" type="xsd:string"/>
+                  
+    
+               </xsd:sequence>
+               
+           
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- get_members_by_device -->
+         
+
+
+         <!-- get container -->
+         
+  
+         <xsd:element name="GetContainingObjectRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="ObjectName" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="GetContainingObjectResponse">
+            
+             
+            <xsd:complexType>
+               
+    
+               <xsd:sequence>
+                  
+      
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="ContainingObjectName" nillable="true" type="xsd:string"/>
+                  
+    
+               </xsd:sequence>
+               
+            
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /get container -->
+         
+
+
+
+         <!-- search object by ip -->
+         
+  
+         <xsd:element name="SearchObjectByIPRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="First" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Last" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="MatchType" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="SearchObjectByIPResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="EntityID" nillable="true" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /search object by ip -->
+         
+
+
+         <!-- record for adding a new device -->
+         
+    
+         <xsd:complexType name="NewDevice">
+            
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="Brand" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="FW_TYPE" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="HostName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="UserName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="DisplayName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="BaselineProfile" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="ConnectionType" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="SshPort" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="RulesView" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="Monitoring" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="Collector" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogCollectionMode" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogCollectionFrequency" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="EnableUserName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="EnablePassword" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="CollectLog" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="CollectLogFrom" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="CollectLogFromAdt" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogHostName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogUserName" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogHostNameAdt" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogUserNameAdt" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="LogPasswordAdt" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalFwIDs" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="SeparateVrfs" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="FullAnalysis" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="DRSet" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="Groups" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+         <!-- / record for adding new device -->
+         
+
+         <!-- crate _device -->
+         
+  
+         <xsd:element name="CreateDeviceRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceDetails" type="tns:NewDevice"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="CreateDeviceResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+
+         <!-- /create_device -->
+         
+
+
+         <!-- delete_device -->
+         
+  
+         <xsd:element name="DeleteDeviceRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="DeviceID" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="DeleteDeviceResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /delete_device -->
+         
+
+
+         <!-- record for device to be added to user/role -->
+         
+
+  
+         <xsd:complexType name="AuthDevice">
+             
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="unbounded" minOccurs="1" name="Device" type="tns:ShortDevice"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+  
+         <xsd:complexType name="ShortDevice">
+            
+    
+            <xsd:sequence>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="Profile" type="xsd:string"/>
+               
+      
+               <xsd:element maxOccurs="1" minOccurs="0" name="Notification" type="xsd:string"/>
+               
+    
+            </xsd:sequence>
+            
+  
+         </xsd:complexType>
+         
+
+
+
+
+         <!-- /record for device to be added to user/role -->
+         
+
+
+         <!-- create_user -->
+         
+  
+         <xsd:element name="CreateUserRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="UserName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="FullName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Email" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Role" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthenticationType" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LandingPage" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Administrator" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="FireflowAdmin" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableAnalysisFromFile" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableGlobalTrustedTraffic" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthorizedDevices" type="tns:AuthDevice"/>
+                   
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="CreateUserResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /create_user -->
+         
+
+
+
+         <!-- update_user -->
+         
+  
+         <xsd:element name="UpdateUserRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="UserName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="FullName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Email" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Roles" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthenticationType" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LandingPage" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Administrator" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="FireflowAdmin" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableAnalysisFromFile" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableGlobalTrustedTraffic" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthorizedDevices" type="tns:AuthDevice"/>
+                   
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="UpdateUserResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /update_user -->
+         
+
+
+         <!-- delete_user -->
+         
+  
+         <xsd:element name="DeleteUserRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="UserName" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="DeleteUserResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+         
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+                
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /delete_user -->
+         
+
+
+
+         <!-- create_role -->
+         
+  
+         <xsd:element name="CreateRoleRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RoleName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RoleDescription" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LadpDN" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Administrator" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LandingPage" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="FireflowAdmin" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableAnalysisFromFile" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableGlobalTrustTraffic" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthorizedDevices" type="tns:AuthDevice"/>
+                   
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="CreateRoleResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /create_role -->
+         
+
+
+
+
+         <!-- update_role -->
+         
+  
+         <xsd:element name="UpdateRoleRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RoleName" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RoleDescription" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LadpDN" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="Administrator" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="LandingPage" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="FireflowAdmin" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableAnalysisFromFile" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EnableGlobalTrustTraffic" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="AuthorizedDevices" type="tns:AuthDevice"/>
+                   
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="UpdateRoleResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /update_role -->
+         
+
+
+         <!-- delete_role -->
+         
+  
+         <xsd:element name="DeleteRoleRequest">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+        
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+        
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="RoleName" type="xsd:string"/>
+                  
+      
+               </xsd:sequence>
+               
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+  
+         <xsd:element name="DeleteRoleResponse">
+            
+    
+            <xsd:complexType>
+               
+      
+               <xsd:sequence>
+                  
+         
+                  <xsd:element name="Result" type="tns:AfaNonEmptyString"/>
+                  
+      
+               </xsd:sequence>
+                
+    
+            </xsd:complexType>
+            
+  
+         </xsd:element>
+         
+
+         <!-- /delete_role -->
+         
+
+      
+         <xsd:element name="GetConfigurationRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+      
+         <xsd:element name="GetConfigurationResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter" nillable="true" type="tns:KeyValueData"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+
+
+         <!-- import_risks_from_spreadsheet-->
+         
+      
+         <xsd:element name="ImportRisksFromSpreadsheetRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RiskProfileName" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="ImportedFileType" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EncodedFileData" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="0" name="InheritStandard" type="tns:int"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="ImportRisksFromSpreadsheetResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetVal" type="tns:int"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetMessage" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /import_risks_from_spreadsheet-->
+         
+
+
+         <!-- import_risks_from_xml-->
+         
+      
+         <xsd:element name="ImportRisksFromXMLRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RiskProfileName" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EncodedFileData" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="ImportRisksFromXMLResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetVal" type="tns:int"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetMessage" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /import_risks_from_xml-->
+         
+
+
+         <!-- get_report_pdf -->
+         
+      
+         <xsd:element name="GetReportPdfRequest">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="SessionID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityID" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="EntityType" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="ReportPage" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+      
+         <xsd:element name="GetReportPdfResponse">
+            
+        
+            <xsd:complexType>
+               
+          
+               <xsd:sequence>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetVal" type="tns:int"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="1" name="RetMessage" type="xsd:string"/>
+                  
+            
+                  <xsd:element maxOccurs="1" minOccurs="0" name="EncodedReportPdf" type="xsd:string"/>
+                  
+          
+               </xsd:sequence>
+               
+        
+            </xsd:complexType>
+            
+      
+         </xsd:element>
+         
+
+         <!-- /get_report_pdf -->
+         
+
+    
+      </xsd:schema>
+      
+
+  
+   </types>
+   
+
+  
+   <!-- /TYPES -->
+   
+  
+   <!-- MESSAGES -->
+   
+  
+   <!-- Common messages -->
+   
+  
+   <message name="error">
+      
+    
+      <part element="tns:ErrorDetails" name="details"/>
+      
+  
+   </message>
+   
+  
+   <!-- /Common messages -->
+   
+
+  
+   <!-- Connect -->
+   
+  
+   <message name="inp_connect">
+      
+    
+      <part element="tns:ConnectRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_connect">
+      
+    
+      <part element="tns:ConnectResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /Connect -->
+   
+
+
+  
+   <!-- ChangeOverTimeReport -->
+   
+  
+   <message name="inp_change_over_time_report">
+      
+    
+      <part element="tns:ChangeOverTimeReportRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_change_over_time_report">
+      
+    
+      <part element="tns:ChangeOverTimeReportResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /ChangeOverTimeReport -->
+   
+
+
+    
+   <!-- GetNatDiscovery -->
+   
+  
+   <message name="inp_get_nat_discovery">
+      
+    
+      <part element="tns:GetNatDiscoveryRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_nat_discovery">
+      
+    
+      <part element="tns:GetNatDiscoveryResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /GetNatDiscovery -->
+   
+
+
+  
+   <!-- license -->
+   
+  
+   <message name="inp_license">
+      
+    
+      <part element="tns:LicenseRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_license">
+      
+    
+      <part element="tns:LicenseResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /license -->
+   
+
+  
+   <!-- disconnect -->
+   
+  
+   <message name="inp_disconnect">
+      
+    
+      <part element="tns:DisconnectRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_disconnect">
+      
+    
+      <part element="tns:DisconnectResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /disconnect -->
+   
+
+  
+   <!-- is_session_alive -->
+   
+  
+   <message name="inp_is_session_alive">
+      
+    
+      <part element="tns:IsSessionAliveRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_is_session_alive">
+      
+    
+      <part element="tns:IsSessionAliveResponse" name="IsSessionAlive"/>
+      
+  
+   </message>
+   
+  
+   <!-- /is connected -->
+   
+
+   
+   <!-- get configuration -->
+   
+ 
+   <message name="inp_get_configuration">
+      
+    
+      <part element="tns:GetConfigurationRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_configuration">
+      
+    
+      <part element="tns:GetConfigurationResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get configuration -->
+   
+ 
+ 
+  
+   <!-- execute query -->
+   
+  
+   <message name="inp_query">
+      
+    
+      <part element="tns:QueryRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_query">
+      
+    
+      <part element="tns:QueryResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /execute_query -->
+   
+
+  
+   <!-- create domain -->
+   
+  
+   <message name="inp_create_domain">
+      
+    
+      <part element="tns:CreateDomainRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_create_domain">
+      
+    
+      <part element="tns:CreateDomainResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /create domain -->
+   
+
+  
+   <!-- set configuration -->
+   
+  
+   <message name="inp_set_configuration">
+      
+    
+      <part element="tns:SetConfigurationRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_set_configuration">
+      
+    
+      <part element="tns:SetConfigurationResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /set configuration -->
+   
+
+  
+   <!-- risks summary -->
+   
+  
+   <message name="inp_risks_summary">
+      
+    
+      <part element="tns:RisksSummaryRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_risks_summary">
+      
+    
+      <part element="tns:RisksSummaryResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /risks summary -->
+   
+
+  
+   <!-- create device group -->
+   
+  
+   <message name="inp_create_device_group">
+      
+    
+      <part element="tns:CreateDeviceGroupRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_create_device_group">
+      
+    
+      <part element="tns:CreateDeviceGroupResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /create device group -->
+   
+
+  
+   <!-- add device to group -->
+   
+  
+   <message name="inp_add_device_to_group">
+      
+    
+      <part element="tns:AddDeviceToGroupRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_add_device_to_group">
+      
+    
+      <part element="tns:AddDeviceToGroupResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /add device to group -->
+   
+
+  
+   <!-- set scheduler job -->
+   
+  
+   <message name="inp_set_scheduler_job">
+      
+    
+      <part element="tns:SetSchedulerJobRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_set_scheduler_job">
+      
+    
+      <part element="tns:SetSchedulerJobResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /set scheduler job -->
+   
+
+  
+   <!-- delete scheduler job -->
+   
+  
+   <message name="inp_delete_scheduler_job">
+      
+    
+      <part element="tns:DeleteSchedulerJobRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_delete_scheduler_job">
+      
+    
+      <part element="tns:DeleteSchedulerJobResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /set scheduler job -->
+   
+
+  
+   <!-- start analysis -->
+   
+  
+   <message name="inp_start_analysis">
+      
+    
+      <part element="tns:StartAnalysisRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_start_analysis">
+      
+    
+      <part element="tns:StartAnalysisResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /start analysis -->
+   
+
+  
+   <!-- get entity name -->
+   
+  
+   <message name="inp_get_entity_name">
+      
+    
+      <part element="tns:GetEntityNameRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_entity_name">
+      
+    
+      <part element="tns:GetEntityNameResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get entity name -->
+   
+
+  
+   <!-- get entity id -->
+   
+  
+   <message name="inp_get_entity_id">
+      
+    
+      <part element="tns:GetEntityIDRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_entity_id">
+      
+    
+      <part element="tns:GetEntityIDResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get entity id -->
+   
+
+  
+   <!-- get devices list -->
+   
+  
+   <message name="inp_get_devices_list">
+      
+    
+      <part element="tns:GetDevicesListRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_devices_list">
+      
+    
+      <part element="tns:GetDevicesListResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get devices list -->
+   
+
+  
+   <!-- edit rule documnetation -->
+   
+  
+   <message name="inp_edit_rule_documentation">
+      
+    
+      <part element="tns:EditRuleDocumentationRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_edit_rule_documentation">
+      
+    
+      <part element="tns:EditRuleDocumentationResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /edit rule documnetation -->
+   
+
+  
+   <!-- get rule documnetation -->
+   
+  
+   <message name="inp_get_rule_documentation">
+      
+    
+      <part element="tns:GetRuleDocumentationRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_rule_documentation">
+      
+    
+      <part element="tns:GetRuleDocumentationResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get rule documnetation -->
+   
+  
+
+
+
+  
+   <!-- get all host groups -->
+   
+  
+   <message name="inp_get_all_hostgroups">
+      
+    
+      <part element="tns:GetAllHostGroupsRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_all_hostgroups">
+      
+    
+      <part element="tns:GetAllHostGroupsResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get all host groups -->
+   
+
+  
+   <!-- get  host groups -->
+   
+  
+   <message name="inp_get_hostgroups_by_device">
+      
+    
+      <part element="tns:GetHostGroupsRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_hostgroups_by_device">
+      
+    
+      <part element="tns:GetHostGroupsResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get  host groups -->
+   
+
+  
+   <!-- get  host groups -->
+   
+  
+   <message name="inp_get_hostgroup_by_name_and_device">
+      
+    
+      <part element="tns:GetHostGroupNameDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_hostgroup_by_name_and_device">
+      
+    
+      <part element="tns:GetHostGroupNameDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get  host groups -->
+   
+
+
+
+  
+   <!-- get all services -->
+   
+  
+   <message name="inp_get_all_services">
+      
+    
+      <part element="tns:GetAllServicesRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_all_services">
+      
+    
+      <part element="tns:GetAllServicesResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get all services -->
+   
+
+
+  
+   <!-- get all services by device-->
+   
+  
+   <message name="inp_get_services_by_device">
+      
+    
+      <part element="tns:GetServicesDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_services_by_device">
+      
+    
+      <part element="tns:GetServicesDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get all services by device-->
+   
+
+
+  
+   <!-- get all services by name & device-->
+   
+  
+   <message name="inp_get_service_by_name_and_device">
+      
+    
+      <part element="tns:GetServiceNameDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_service_by_name_and_device">
+      
+    
+      <part element="tns:GetServiceNameDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get all services by name & device-->
+   
+
+  
+   <!-- get rules by device -->
+   
+  
+   <message name="inp_get_rules_by_device">
+      
+    
+      <part element="tns:GetRulesByDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_rules_by_device">
+      
+    
+      <part element="tns:GetRulesByDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get rules by device -->
+   
+
+  
+   <!-- get unused rules by device -->
+   
+  
+   <message name="inp_get_unused_rules">
+      
+    
+      <part element="tns:GetUnusedRulesRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_unused_rules">
+      
+    
+      <part element="tns:GetUnusedRulesResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get unused rules by device -->
+   
+
+  
+   <!-- search rule -->
+   
+  
+   <message name="inp_search_rule">
+      
+    
+      <part element="tns:SearchRuleRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_search_rule">
+      
+    
+      <part element="tns:SearchRuleResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /search rule -->
+   
+
+
+  
+   <!-- get groups -->
+   
+   
+   <message name="inp_get_groups_list">
+      
+     
+      <part element="tns:GetGroupsListRequest" name="parameters"/>
+      
+   
+   </message>
+   
+   
+   <message name="out_get_groups_list">
+      
+    
+      <part element="tns:GetGroupsListResponse" name="parameters"/>
+      
+   
+   </message>
+   
+  
+   <!-- /get groups -->
+   
+
+  
+   <!-- get groups -->
+   
+   
+   <message name="inp_get_group_content">
+      
+     
+      <part element="tns:GetGroupContentRequest" name="parameters"/>
+      
+   
+   </message>
+   
+   
+   <message name="out_get_group_content">
+      
+    
+      <part element="tns:GetGroupContentResponse" name="parameters"/>
+      
+   
+   </message>
+   
+  
+   <!-- /get groups -->
+   
+
+  
+   <!-- device statistics -->
+   
+  
+   <message name="inp_get_device_statistics">
+      
+    
+      <part element="tns:GetDeviceStatisticsRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_device_statistics">
+      
+   
+      <part element="tns:GetDeviceStatisticsResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /device statistics -->
+   
+
+
+  
+   <!-- get_members_by_device -->
+   
+  
+   <message name="inp_get_members_by_device">
+      
+    
+      <part element="tns:GetMembersByDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_members_by_device">
+      
+   
+      <part element="tns:GetMembersByDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get_members_by_device -->
+   
+
+ 
+   <!-- get container -->
+   
+  
+   <message name="inp_get_containing_objects">
+      
+    
+      <part element="tns:GetContainingObjectRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_containing_objects">
+      
+   
+      <part element="tns:GetContainingObjectResponse" name="parameters"/>
+      
+  
+   </message>
+   
+ 
+   <!-- /get container -->
+   
+
+
+   <!-- search object by IP -->
+   
+  
+   <message name="inp_search_object_by_ip">
+      
+    
+      <part element="tns:SearchObjectByIPRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_search_object_by_ip">
+      
+    
+      <part element="tns:SearchObjectByIPResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /search object by ip -->
+   
+ 
+
+
+   <!-- create device -->
+   
+  
+   <message name="inp_create_device">
+      
+    
+      <part element="tns:CreateDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_create_device">
+      
+    
+      <part element="tns:CreateDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /create device -->
+   
+
+
+   <!-- delete device -->
+   
+  
+   <message name="inp_delete_device">
+      
+    
+      <part element="tns:DeleteDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_delete_device">
+      
+    
+      <part element="tns:DeleteDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /delete device -->
+   
+
+
+   <!-- create_user -->
+   
+  
+   <message name="inp_create_user">
+      
+    
+      <part element="tns:CreateUserRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_create_user">
+      
+    
+      <part element="tns:CreateUserResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /create_user -->
+   
+
+
+   <!-- update_user -->
+   
+  
+   <message name="inp_update_user">
+      
+    
+      <part element="tns:UpdateUserRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_update_user">
+      
+    
+      <part element="tns:UpdateUserResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /update_user -->
+   
+
+
+   <!-- delete_user -->
+   
+  
+   <message name="inp_delete_user">
+      
+    
+      <part element="tns:DeleteUserRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_delete_user">
+      
+    
+      <part element="tns:DeleteUserResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /delete_user -->
+   
+
+
+   <!-- create_role -->
+   
+  
+   <message name="inp_create_role">
+      
+    
+      <part element="tns:CreateRoleRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_create_role">
+      
+    
+      <part element="tns:CreateRoleResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /create_role -->
+   
+
+
+
+   <!-- update_role -->
+   
+  
+   <message name="inp_update_role">
+      
+    
+      <part element="tns:UpdateRoleRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_update_role">
+      
+    
+      <part element="tns:UpdateRoleResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /update_role -->
+   
+
+
+   <!-- delete_role -->
+   
+  
+   <message name="inp_delete_role">
+      
+    
+      <part element="tns:DeleteRoleRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_delete_role">
+      
+    
+      <part element="tns:DeleteRoleResponse" name="parameters"/>
+      
+  
+   </message>
+   
+
+   <!-- /delete_role -->
+   
+
+
+
+  
+   <!-- get_parent_device -->
+   
+  
+   <message name="inp_get_parent_device">
+      
+    
+      <part element="tns:GetParentDeviceRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_parent_device">
+      
+    
+      <part element="tns:GetParentDeviceResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get_parent_device -->
+   
+
+
+  
+   <!-- import_risks_from_spreadsheet -->
+   
+  
+   <message name="inp_import_risks_from_spreadsheet">
+      
+    
+      <part element="tns:ImportRisksFromSpreadsheetRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_import_risks_from_spreadsheet">
+      
+    
+      <part element="tns:ImportRisksFromSpreadsheetResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /import_risks_from_spreadsheet -->
+   
+
+
+  
+   <!-- import_risks_from_xml -->
+   
+  
+   <message name="inp_import_risks_from_xml">
+      
+    
+      <part element="tns:ImportRisksFromXMLRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_import_risks_from_xml">
+      
+    
+      <part element="tns:ImportRisksFromXMLResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /import_risks_from_xml -->
+   
+
+
+  
+   <!-- get_report_pdf -->
+   
+  
+   <message name="inp_get_report_pdf">
+      
+    
+      <part element="tns:GetReportPdfRequest" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <message name="out_get_report_pdf">
+      
+    
+      <part element="tns:GetReportPdfResponse" name="parameters"/>
+      
+  
+   </message>
+   
+  
+   <!-- /get_report_pdf -->
+   
+
+
+
+   <!-- /MESSAGES -->
+   
+
+  
+   <portType name="AFA">
+      
+
+    
+      <operation name="connect">
+         
+      
+         <input message="tns:inp_connect" name="inp_connect"/>
+         
+      
+         <output message="tns:out_connect" name="out_connect"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+      
+      <operation name="get_nat_discovery">
+         
+      
+         <input message="tns:inp_get_nat_discovery" name="inp_get_nat_discovery"/>
+         
+      
+         <output message="tns:out_get_nat_discovery" name="out_get_nat_discovery"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="device_changes_over_time_report">
+         
+      
+         <input message="tns:inp_change_over_time_report" name="inp_change_over_time_report"/>
+         
+      
+         <output message="tns:out_change_over_time_report" name="out_change_over_time_report"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_license">
+         
+      
+         <input message="tns:inp_license" name="inp_license"/>
+         
+      
+         <output message="tns:out_license" name="out_license"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="query">
+         
+      
+         <input message="tns:inp_query" name="inp_query"/>
+         
+      
+         <output message="tns:out_query" name="out_query"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="is_session_alive">
+         
+      
+         <input message="tns:inp_is_session_alive" name="inp_is_session_alive"/>
+         
+      
+         <output message="tns:out_is_session_alive" name="out_is_session_alive"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="disconnect">
+         
+      
+         <input message="tns:inp_disconnect" name="inp_disconnect"/>
+         
+      
+         <output message="tns:out_disconnect" name="out_disconnect"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="create_domain">
+         
+      
+         <input message="tns:inp_create_domain" name="inp_create_domain"/>
+         
+      
+         <output message="tns:out_create_domain" name="out_create_domain"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="set_configuration">
+         
+      
+         <input message="tns:inp_set_configuration" name="inp_set_configuration"/>
+         
+      
+         <output message="tns:out_set_configuration" name="out_set_configuration"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="risks_summary">
+         
+      
+         <input message="tns:inp_risks_summary" name="inp_risks_summary"/>
+         
+      
+         <output message="tns:out_risks_summary" name="out_risks_summary"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="create_device_group">
+         
+      
+         <input message="tns:inp_create_device_group" name="inp_create_device_group"/>
+         
+      
+         <output message="tns:out_create_device_group" name="out_create_device_group"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+
+
+    
+      <operation name="add_device_to_group">
+         
+      
+         <input message="tns:inp_add_device_to_group" name="inp_add_device_to_group"/>
+         
+      
+         <output message="tns:out_add_device_to_group" name="out_add_device_to_group"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="set_scheduler_job">
+         
+      
+         <input message="tns:inp_set_scheduler_job" name="inp_set_scheduler_job"/>
+         
+      
+         <output message="tns:out_set_scheduler_job" name="out_set_scheduler_job"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="delete_scheduler_job">
+         
+      
+         <input message="tns:inp_delete_scheduler_job" name="inp_delete_scheduler_job"/>
+         
+      
+         <output message="tns:out_delete_scheduler_job" name="out_delete_scheduler_job"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="start_analysis">
+         
+      
+         <input message="tns:inp_start_analysis" name="inp_start_analysis"/>
+         
+      
+         <output message="tns:out_start_analysis" name="out_start_analysis"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_entity_name">
+         
+      
+         <input message="tns:inp_get_entity_name" name="inp_get_entity_name"/>
+         
+      
+         <output message="tns:out_get_entity_name" name="out_get_entity_name"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_entity_id">
+         
+      
+         <input message="tns:inp_get_entity_id" name="inp_get_entity_id"/>
+         
+      
+         <output message="tns:out_get_entity_id" name="out_get_entity_id"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_devices_list">
+         
+      
+         <input message="tns:inp_get_devices_list" name="inp_get_devices_list"/>
+         
+      
+         <output message="tns:out_get_devices_list" name="out_get_devices_list"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="edit_rule_documentation">
+         
+      
+         <input message="tns:inp_edit_rule_documentation" name="inp_edit_rule_documentation"/>
+         
+      
+         <output message="tns:out_edit_rule_documentation" name="out_edit_rule_documentation"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_rule_documentation">
+         
+      
+         <input message="tns:inp_get_rule_documentation" name="inp_get_rule_documentation"/>
+         
+      
+         <output message="tns:out_get_rule_documentation" name="out_get_rule_documentation"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_all_hostgroups">
+         
+      
+         <input message="tns:inp_get_all_hostgroups" name="inp_get_all_hostgroups"/>
+         
+      
+         <output message="tns:out_get_all_hostgroups" name="out_get_all_hostgroups"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_hostgroups_by_device">
+         
+      
+         <input message="tns:inp_get_hostgroups_by_device" name="inp_get_hostgroups_by_device"/>
+         
+      
+         <output message="tns:out_get_hostgroups_by_device" name="out_get_hostgroups_by_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_hostgroup_by_name_and_device">
+         
+      
+         <input message="tns:inp_get_hostgroup_by_name_and_device" name="inp_get_hostgroup_by_name_and_device"/>
+         
+      
+         <output message="tns:out_get_hostgroup_by_name_and_device" name="out_get_hostgroup_by_name_and_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_all_services">
+         
+      
+         <input message="tns:inp_get_all_services" name="inp_get_all_services"/>
+         
+      
+         <output message="tns:out_get_all_services" name="out_get_all_services"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_services_by_device">
+         
+      
+         <input message="tns:inp_get_services_by_device" name="inp_get_services_by_device"/>
+         
+      
+         <output message="tns:out_get_services_by_device" name="out_get_services_by_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_service_by_name_and_device">
+         
+      
+         <input message="tns:inp_get_service_by_name_and_device" name="inp_get_service_by_name_and_device"/>
+         
+      
+         <output message="tns:out_get_service_by_name_and_device" name="out_get_service_by_name_and_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_rules_by_device">
+         
+      
+         <input message="tns:inp_get_rules_by_device" name="inp_get_rules_by_device"/>
+         
+      
+         <output message="tns:out_get_rules_by_device" name="out_get_rules_by_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_unused_rules">
+         
+      
+         <input message="tns:inp_get_unused_rules" name="inp_get_unused_rules"/>
+         
+      
+         <output message="tns:out_get_unused_rules" name="out_get_unused_rules"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+   
+      <operation name="search_rule">
+         
+     
+         <input message="tns:inp_search_rule" name="inp_search_rule"/>
+         
+     
+         <output message="tns:out_search_rule" name="out_search_rule"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+   
+      </operation>
+      
+
+   
+      <operation name="get_groups_list">
+         
+     
+         <input message="tns:inp_get_groups_list" name="inp_get_groups_list"/>
+         
+     
+         <output message="tns:out_get_groups_list" name="out_get_groups_list"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+   
+      </operation>
+      
+
+   
+      <operation name="get_group_content">
+         
+     
+         <input message="tns:inp_get_group_content" name="inp_get_group_content"/>
+         
+     
+         <output message="tns:out_get_group_content" name="out_get_group_content"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+   
+      </operation>
+      
+
+
+  
+      <operation name="get_device_statistics">
+         
+    
+         <input message="tns:inp_get_device_statistics" name="inp_get_device_statistics"/>
+         
+    
+         <output message="tns:out_get_device_statistics" name="out_get_device_statistics"/>
+         
+    
+         <fault message="tns:error" name="connectError"/>
+         
+  
+      </operation>
+      
+
+  
+      <operation name="get_members_by_device">
+         
+    
+         <input message="tns:inp_get_members_by_device" name="inp_get_members_by_device"/>
+         
+    
+         <output message="tns:out_get_members_by_device" name="out_get_members_by_device"/>
+         
+    
+         <fault message="tns:error" name="connectError"/>
+         
+  
+      </operation>
+      
+  
+      <operation name="get_containing_objects">
+         
+    
+         <input message="tns:inp_get_containing_objects" name="inp_get_containing_objects"/>
+         
+    
+         <output message="tns:out_get_containing_objects" name="out_get_containing_objects"/>
+         
+    
+         <fault message="tns:error" name="connectError"/>
+         
+  
+      </operation>
+      
+  
+      <operation name="search_object_by_ip">
+         
+    
+         <input message="tns:inp_search_object_by_ip" name="inp_search_object_by_ip"/>
+         
+    
+         <output message="tns:out_search_object_by_ip" name="out_search_object_by_ip"/>
+         
+    
+         <fault message="tns:error" name="connectError"/>
+         
+  
+      </operation>
+      
+ 
+      <operation name="create_device">
+         
+  
+         <input message="tns:inp_create_device" name="inp_create_device"/>
+         
+  
+         <output message="tns:out_create_device" name="out_create_device"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="delete_device">
+         
+  
+         <input message="tns:inp_delete_device" name="inp_delete_device"/>
+         
+  
+         <output message="tns:out_delete_device" name="out_delete_device"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="create_user">
+          
+  
+         <input message="tns:inp_create_user" name="inp_create_user"/>
+         
+  
+         <output message="tns:out_create_user" name="out_create_user"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="update_user">
+          
+  
+         <input message="tns:inp_update_user" name="inp_update_user"/>
+         
+  
+         <output message="tns:out_update_user" name="out_update_user"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="create_role">
+         
+   
+         <input message="tns:inp_create_role" name="inp_create_role"/>
+         
+   
+         <output message="tns:out_create_role" name="out_create_role"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="update_role">
+         
+   
+         <input message="tns:inp_update_role" name="inp_update_role"/>
+         
+   
+         <output message="tns:out_update_role" name="out_update_role"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="delete_user">
+         
+  
+         <input message="tns:inp_delete_user" name="inp_delete_user"/>
+         
+  
+         <output message="tns:out_delete_user" name="out_delete_user"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+ 
+      <operation name="delete_role">
+         
+  
+         <input message="tns:inp_delete_role" name="inp_delete_role"/>
+         
+  
+         <output message="tns:out_delete_role" name="out_delete_role"/>
+         
+  
+         <fault message="tns:error" name="connectError"/>
+         
+ 
+      </operation>
+      
+
+     
+      <operation name="get_configuration">
+         
+      
+         <input message="tns:inp_get_configuration" name="inp_get_configuration"/>
+         
+      
+         <output message="tns:out_get_configuration" name="out_get_configuration"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_parent_device">
+         
+      
+         <input message="tns:inp_get_parent_device" name="inp_get_parent_device"/>
+         
+      
+         <output message="tns:out_get_parent_device" name="out_get_parent_device"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+
+  
+      <operation name="import_risks_from_spreadsheet">
+         
+      
+         <input message="tns:inp_import_risks_from_spreadsheet" name="inp_import_risks_from_spreadsheet"/>
+         
+      
+         <output message="tns:out_import_risks_from_spreadsheet" name="out_import_risks_from_spreadsheet"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+  
+      <operation name="import_risks_from_xml">
+         
+      
+         <input message="tns:inp_import_risks_from_xml" name="inp_import_risks_from_xml"/>
+         
+      
+         <output message="tns:out_import_risks_from_xml" name="out_import_risks_from_xml"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+  
+      <operation name="get_report_pdf">
+         
+      
+         <input message="tns:inp_get_report_pdf" name="inp_get_report_pdf"/>
+         
+      
+         <output message="tns:out_get_report_pdf" name="out_get_report_pdf"/>
+         
+      
+         <fault message="tns:error" name="connectError"/>
+         
+    
+      </operation>
+      
+
+  
+   </portType>
+   
+
+
+
+  
+   <binding name="AFA_Binding" type="tns:AFA">
+      
+    
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      
+    
+      <operation name="connect">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/connect"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="device_changes_over_time_report">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/device_changes_over_time_report"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_nat_discovery">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_nat_discovery"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_license">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_license"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="query">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/query"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="disconnect">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/disconnect"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="is_session_alive">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/is_session_alive"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="create_domain">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/create_domain"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="set_configuration">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/set_configuration"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="create_device_group">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/create_device_group"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="add_device_to_group">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/add_device_to_group"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="set_scheduler_job">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/set_scheduler_job"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="delete_scheduler_job">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/delete_scheduler_job"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="start_analysis">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/start_analysis"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_entity_name">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_entity_name"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="risks_summary">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/risks_summary"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_entity_id">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_entity_id"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_devices_list">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_devices_list"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="edit_rule_documentation">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/edit_rule_documentation"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+     
+      <operation name="get_rule_documentation">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_rule_documentation"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_all_hostgroups">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_all_hostgroups"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_hostgroups_by_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_hostgroups_by_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_hostgroup_by_name_and_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_hostgroup_by_name_and_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_all_services">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_all_services"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+
+    
+      <operation name="get_services_by_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_services_by_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+
+    
+      <operation name="get_service_by_name_and_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_service_by_name_and_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_rules_by_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_rules_by_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_unused_rules">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_unused_rules"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="search_rule">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/search_rule"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_groups_list">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_groups_list"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_group_content">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_group_content"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_device_statistics">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_device_statistics"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_members_by_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_members_by_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+    
+      <operation name="get_containing_objects">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_containing_objects"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+
+
+    
+      <operation name="search_object_by_ip">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/search_object_by_ip"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="create_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/create_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="delete_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/delete_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="create_user">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/create_user"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="update_user">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/update_user"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="delete_user">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/delete_user"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="create_role">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/create_role"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+
+    
+      <operation name="update_role">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/update_role"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="delete_role">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/delete_role"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+    
+      <operation name="get_configuration">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_configuration"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_parent_device">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_parent_device"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="import_risks_from_spreadsheet">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/import_risks_from_spreadsheet"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="import_risks_from_xml">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/import_risks_from_xml"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+    
+      <operation name="get_report_pdf">
+         
+      
+         <soap:operation soapAction="https://www.algosec.com/afa-ws/get_report_pdf"/>
+         
+      
+         <input>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </input>
+         
+      
+         <output>
+            
+        
+            <soap:body namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </output>
+         
+      
+         <fault name="connectError">
+            
+        
+            <soap:fault name="connectError" namespace="https://www.algosec.com/afa-ws" use="literal"/>
+            
+      
+         </fault>
+         
+    
+      </operation>
+      
+
+
+  
+   </binding>
+   
+
+  
+   <service name="AFAService">
+      
+    
+      <documentation>Algosec Firewall Analyzer Web Services</documentation>
+      
+    
+      <port binding="tns:AFA_Binding" name="AFA_Binding">
+         
+      
+         <soap:address location="https://localhost/afa/php/ws.php"/>
+         
+    
+      </port>
+      
+  
+   </service>
+   
+
+</definitions>
