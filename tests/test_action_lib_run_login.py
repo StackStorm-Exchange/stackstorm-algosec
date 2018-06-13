@@ -25,7 +25,7 @@ class TestActionLibRunLogin(AlgoSecActionTestCase):
                       'wsdl_endpoint': 'WebServices/FireFlow.wsdl'}
         kwargs_dict = {'session': None,
                        'operation': "authenticate",
-                       'ffws_header': {"version":"1.0", "opaque":""}}
+                       'ffws_header': {"version": "1.0", "opaque": ""}}
         context = {'connection': connection,
                   'kwargs_dict': kwargs_dict}
         expected_session = "xyz123"
@@ -46,8 +46,6 @@ class TestActionLibRunLogin(AlgoSecActionTestCase):
             domain=None)
 
         self.assertEquals(result, {'session_id': expected_session})
-
-
 
     @mock.patch("lib.run_operation.RunOperation._pre_exec")
     def test_run_afa(self, mock__pre_exec):

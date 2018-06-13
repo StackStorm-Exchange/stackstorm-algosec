@@ -35,13 +35,13 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
 
     def test__sanitize_operation_args(self):
         action = self.get_action_instance({})
-        action.client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_05.xml")
+        action.client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_13.xml")
         test_operation = 'createTicket'
-        test_dict = {'ffws_header': {"version":"1.0", "opaque":""},
+        test_dict = {'ffws_header': {"version": "1.0", "opaque": ""},
                     'session_id': 'test',
                     'ticket': "test"}
 
-        expected_dict = {'FFWSHeader': {"version":"1.0", "opaque":""},
+        expected_dict = {'FFWSHeader': {"version": "1.0", "opaque": ""},
                         'sessionId': 'test',
                         'ticket': "test"}
         result = action._sanitize_operation_args(test_operation, test_dict)
@@ -209,7 +209,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         action = self.get_action_instance(self.config_good)
         kwargs_dict = {'session': None,
                        'operation': "authenticate",
-                       'ffws_header': {"version":"1.0", "opaque":""}}
+                       'ffws_header': {"version": "1.0", "opaque": ""}}
         connection_name = 'full'
         connection = self.config_good['algosec'][connection_name]
         context = {'connection': connection,
@@ -240,11 +240,11 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
                        'server': 'algosec.domain.tld',
                        'username': 'user',
                        'password': 'pass',
-                       'ffws_header': {"version":"1.0", "opaque":""},
+                       'ffws_header': {"version": "1.0", "opaque": ""},
                        'wsdl_endpoint': 'WebServices/FireFlow.wsdl'}
         kwargs_dict_extras = {'arg1': 'value1',
                               'arg2': 'value2',
-                              'ffws_header': {"version":"1.0", "opaque":""}}
+                              'ffws_header': {"version": "1.0", "opaque": ""}}
         kwargs_dict.update(kwargs_dict_extras)
         wsdl_url = ("http://{0}/WebServices/FireFlow.wsdl"
                     .format(kwargs_dict['server']))
@@ -273,14 +273,14 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         connection_name = 'full'
         kwargs_dict = {'operation': 'createTicket',
                        'session_id': None,
-                       'ffws_header': {"version":"1.0", "opaque":""},
+                       'ffws_header': {"version": "1.0", "opaque": ""},
                        'connection': connection_name}
         connection = self.config_good['algosec'][connection_name]
         kwargs_dict.update(connection)
         connection['connection'] = connection_name
         kwargs_dict_extras = {'arg1': 'value1',
                               'arg2': 'value2',
-                              'ffws_header': {"version":"1.0", "opaque":""}}
+                              'ffws_header': {"version": "1.0", "opaque": ""}}
         kwargs_dict.update(kwargs_dict_extras)
         wsdl_url = ("{0}://{1}:{2}/WebServices/FireFlow.wsdl"
                     .format(kwargs_dict['transport'],
@@ -310,7 +310,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
                          'sessionId': expected_session}
         context = {'kwargs_dict': {'param_one_value': 'value1',
                                    'param_two_value': 'value2',
-                                   'ffws_header': {"version":"1.0", "opaque":""}},
+                                   'ffws_header': {"version": "1.0", "opaque": ""}},
                    'operation': 'createTicket',
                    'session_id': expected_session,
                    'connection': {'server': 'algosec.domain.tld',
@@ -342,7 +342,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
                          'sessionId': expected_session}
         context = {'kwargs_dict': {'param_one_value': 'value1',
                                    'param_two_value': 'value2',
-                                   'ffws_header': {"version":"1.0", "opaque":""}},
+                                   'ffws_header': {"version": "1.0", "opaque": ""}},
                    'operation': 'createTicket',
                    'session_id': None,
                    'connection': {'server': 'algosec.domain.tld',
@@ -373,7 +373,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         action = self.get_action_instance(self.config_blank)
         context = {'kwargs_dict': {'param_one_value': 'value1',
                                    'param_two_value': 'value2',
-                                   'ffws_header': {"version":"1.0", "opaque":""}},
+                                   'ffws_header': {"version": "1.0", "opaque": ""}},
                    'operation': 'createTicket',
                    'session_id': None,
                    'connection': {'server': 'algosec.domain.tld',
@@ -385,7 +385,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
     def test__post_exec(self):
         logging.disable(logging.CRITICAL)
         action = self.get_action_instance(self.config_blank)
-        client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_05.xml")
+        client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_13.xml")
         expected = {"customFieldData": {"name": "abc123",
                                "displayName": "new_field",
                                "type": None,

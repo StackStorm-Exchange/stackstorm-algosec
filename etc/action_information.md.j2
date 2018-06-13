@@ -10,9 +10,7 @@ In this same command one of the arguments is `SessionID` that becomes the
 `session_id` action parameter.
 
 | Reference of the Action | Description |
-|-------------------------|-------------|
-{% for action in all_actions %}
-| {{ action.name }} | {{ action.description }} |
-{% endfor %}
+|-------------------------|-------------|{% for action in all_actions %}
+| {{ action.name }} | {{ action.description }} |{% endfor %}
 
 ## <a name="UsageBasic">
