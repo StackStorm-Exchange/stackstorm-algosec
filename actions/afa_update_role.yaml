@@ -1,0 +1,86 @@
+---
+description: "Invokes the AlgoSec SOAP command update_role"
+enabled: true
+runner_type: "python-script"
+entry_point: lib/run_operation.py
+name: afa_update_role
+parameters:
+  operation:
+    type: string
+    default: update_role
+    immutable: true
+  connection:
+    type: string
+    description: "Name of <connection> from this pack's configuration that specifies how to connect to a AlgoSec server."
+    required: false
+  domain:
+    description: "Optional override of the AlgoSec domain in <connection> (required if <connection> is not specified)."
+    type: string
+    required: false
+  server:
+    type: string
+    description: "Optional override of the AlgoSec server in <connection> (required if <connection> is not specified)."
+    required: false
+  username:
+    type: string
+    description: "Optional override of the AlgoSec username in <connection> (example: username@domain.tld) (required if <connection> is not specified)."
+    required: false
+  password:
+    type: string
+    description: "Optional override of the AlgoSec password in <connection>. (required if <connection> is not specified)"
+    required: false
+    secret: true
+  port:
+    type: integer
+    description: "Optional override of the AlgoSec port in <connection>."
+    required: false
+  transport:
+    type: string
+    description: "Optional override of the AlgoSec transport in <connection>."
+    required: false
+  wsdl_endpoint:
+    type: string
+    description: "Optional override of the AlgoSec wsdl_endpoint in <connection>."
+    default: AFA/php/ws.php?wsdl
+  session_id:
+    type: string
+    required: false
+    description: "Login session cookie. If empty then username/password will be used to login prior to running this operation"
+  role_name:
+    type: string
+    required: true
+  role_description:
+    type: string
+    required: true
+  ladp_dn:
+    type: string
+    required: false
+  administrator:
+    type: string
+    required: false
+  landing_page:
+    type: string
+    required: false
+  fireflow_admin:
+    type: string
+    required: false
+  enable_analysis_from_file:
+    type: string
+    required: false
+  enable_global_trust_traffic:
+    type: string
+    required: false
+  authorized_devices:
+    type: object
+    required: true
+    description: >
+      'type: AuthDevice
+       json_schema: {
+         "Device": [
+           {
+             "Profile": "string", 
+             "Notification": "string", 
+             "ID": "string"
+           }
+         ]
+       }'

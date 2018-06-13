@@ -1,0 +1,71 @@
+---
+description: "Invokes the AlgoSec SOAP command search_rule"
+enabled: true
+runner_type: "python-script"
+entry_point: lib/run_operation.py
+name: afa_search_rule
+parameters:
+  operation:
+    type: string
+    default: search_rule
+    immutable: true
+  connection:
+    type: string
+    description: "Name of <connection> from this pack's configuration that specifies how to connect to a AlgoSec server."
+    required: false
+  domain:
+    description: "Optional override of the AlgoSec domain in <connection> (required if <connection> is not specified)."
+    type: string
+    required: false
+  server:
+    type: string
+    description: "Optional override of the AlgoSec server in <connection> (required if <connection> is not specified)."
+    required: false
+  username:
+    type: string
+    description: "Optional override of the AlgoSec username in <connection> (example: username@domain.tld) (required if <connection> is not specified)."
+    required: false
+  password:
+    type: string
+    description: "Optional override of the AlgoSec password in <connection>. (required if <connection> is not specified)"
+    required: false
+    secret: true
+  port:
+    type: integer
+    description: "Optional override of the AlgoSec port in <connection>."
+    required: false
+  transport:
+    type: string
+    description: "Optional override of the AlgoSec transport in <connection>."
+    required: false
+  wsdl_endpoint:
+    type: string
+    description: "Optional override of the AlgoSec wsdl_endpoint in <connection>."
+    default: AFA/php/ws.php?wsdl
+  session_id:
+    type: string
+    required: false
+    description: "Login session cookie. If empty then username/password will be used to login prior to running this operation"
+  entity_id:
+    type: string
+    required: true
+  entity_type:
+    type: string
+    required: true
+  search_for:
+    type: object
+    required: true
+    description: >
+      'type: SearchParam
+       json_schema: [
+         {
+           "Field": "string", 
+           "Search": "string"
+         }
+       ]'
+  exact_match:
+    type: string
+    required: false
+  include_any:
+    type: string
+    required: false
