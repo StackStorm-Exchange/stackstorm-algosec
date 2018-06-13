@@ -22,7 +22,9 @@ import zeep
 
 
 ACTION_TEMPLATE_PATH = "./action_template.yaml.j2"
+ACTION_INFORMATION_PATH = "./action_information.md.j2"
 ACTION_DIRECTORY = "../actions"
+README_PATH = "../README.md"
 API_ENDPOINTS = [
     {'NAME': "fireflow",
     "WSDL_ENDPOINT": "WebServices/FireFlow.wsdl",
@@ -100,7 +102,12 @@ class ActionGenerator(object):
     def fetch_wsdl(self):
         for wsdl in API_ENDPOINTS:
             wsdl_url = "https://{0}/{1}".format(self.cli_args.hostname, wsdl['WSDL_ENDPOINT'])
-            response = requests.get(wsdl_url, verify=False)
+            response = None
+            try:
+                response = requests.get(wsdl_url)
+            except requests.exceptions.SSLError:
+                response = requests.get(wsdl_url, verify=False)
+
             xml = minidom.parseString(response.text)
             xml_str = xml.toprettyxml(indent="   ")
 
@@ -110,6 +117,26 @@ class ActionGenerator(object):
             filename = wsdl['WSDL_GLOB_PATH'].replace('*', date_str)
             with open(filename, "w") as f:
                 f.write(xml_str)
+
+    def build_action_list(self):
+        action_data = self.jinja_render_file(ACTION_INFORMATION_PATH,
+                                            {'all_actions': self.all_actions})
+        first_line = action_data.split('\n')[0]
+        last_line = action_data.split('\n')[-1]
+        original_string = None
+        with open(README_PATH) as f:
+            original_string = f.read()
+
+        first_line_index = original_string.find(first_line)
+        last_line_index = original_string.find(last_line)
+        if first_line_index and last_line_index:
+            last_line_index += len(last_line)
+
+            string_to_replace = original_string[first_line_index:last_line_index]
+            new_string = original_string.replace(string_to_replace, action_data)
+
+            with open(README_PATH, "w") as f:
+                f.write(new_string)
 
     def camel_case_to_snake_case(self, name):
         s0 = name.replace('-', '')
@@ -129,6 +156,10 @@ class ActionGenerator(object):
         action_data = self.jinja_render_file(ACTION_TEMPLATE_PATH, context)
         action_filename = "{}/{}.yaml".format(ACTION_DIRECTORY,
                                               context['operation_snake_case'])
+
+        self.all_actions.append({'name': "algosec.{0}".format(context['operation_snake_case']),
+                                'description': context['operation_description']})
+
         with open(action_filename, "w") as f:
             f.write(action_data)
 
@@ -229,9 +260,10 @@ class ActionGenerator(object):
 
             if isinstance(input_type_obj, zeep.xsd.types.builtins.BuiltinType):
                 parameter_type = input_type_obj._default_qname.localname
-                if parameter_type == "unsignedInt":
+                if parameter_type == "unsignedInt" or parameter_type == "int":
                     parameter_type = "integer"
-
+                elif parameter_type == "date":
+                    parameter_type = "string"
             else:
                 parameter_description = self.get_type_description(input_elem)
                 parameter_type = 'object'
@@ -256,6 +288,7 @@ class ActionGenerator(object):
         self.render_action(op_context)
 
     def generate(self):
+        self.all_actions = []
         for wsdl in API_ENDPOINTS:
             self.wsdl = wsdl
             wsdl_path = None
@@ -269,13 +302,13 @@ class ActionGenerator(object):
             client = zeep.Client(wsdl=wsdl_path)
 
             # Parse Operations from the WSDL file
-            #service = next(s for s in client.wsdl.services.values() if s.name == "FireFlowWebServiceService")
             service = client.wsdl.services.values()[0]
-            #port = next(p for p in service.ports.values() if p.name == "FireFlowWebServicePort")
             port = service.ports.values()[0]
 
             for operation in port.binding._operations.values():
                 self.generate_operation(operation)
+
+        self.build_action_list()
 
     def run(self):
         if self.cli_args.command == "fetch-wsdl":

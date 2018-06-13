@@ -1,0 +1,16 @@
+---
+algosec:
+  dev:
+    server: algosec.dev.domain.tld
+    username: stackstorm_svc@dev.domain.tld
+    password: DevPassword
+  stage:
+    server: algosec.stage.domain.tld
+    username: stackstorm_svc@stage.domain.tld
+    password: stagePassword
+    port: 8080
+  prod:
+    server: algosec.prod.domain.tld
+    username: stackstorm_svc@prod.domain.tld
+    password: SuperSecret
+    transport: https
