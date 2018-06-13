@@ -19,6 +19,7 @@ import requests
 from xml.dom import minidom
 import yaml
 import zeep
+from operator import itemgetter
 
 
 ACTION_TEMPLATE_PATH = "./action_template.yaml.j2"
@@ -119,8 +120,10 @@ class ActionGenerator(object):
                 f.write(xml_str)
 
     def build_action_list(self):
+        # Sort the list of actions by the action name
+        sorted_actions = sorted(self.all_actions, key=itemgetter('name'))
         action_data = self.jinja_render_file(ACTION_INFORMATION_PATH,
-                                            {'all_actions': self.all_actions})
+                                            {'all_actions': sorted_actions})
         first_line = action_data.split('\n')[0]
         last_line = action_data.split('\n')[-1]
         original_string = None

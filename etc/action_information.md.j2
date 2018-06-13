@@ -5,9 +5,11 @@ Actions in this pack are auto-generated from the AlgoSec SOAP API operations def
 an action created for every "Command" in the AlgoSec API. Input and output
 parameters should be the same with all action names and action parameters
 convert from CamelCase to snake_case with a few expecptions. Example: SOAP command IsSessionAlive
-will be converted to snake_case for the action to become `algosec.is_session_alive`.
+will be converted to snake_case for the action to become `algosec.afa_is_session_alive`.
 In this same command one of the arguments is `SessionID` that becomes the
 `session_id` action parameter.
+
+**Note**: There are currently issues with the some of the AlgoSec AFA Actions not returning informaiton in the proper formats. Currently working with the vendor to fix.
 
 | Reference of the Action | Description |
 |-------------------------|-------------|{% for action in all_actions %}
