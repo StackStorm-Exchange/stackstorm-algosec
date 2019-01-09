@@ -170,7 +170,8 @@ class ActionGenerator(object):
         if not elem_type.name:
             return None
 
-        if isinstance(elem_type, zeep.xsd.types.builtins.BuiltinType):  # pylint: disable=no-member
+        # pylint: disable=no-member
+        if isinstance(elem_type, zeep.xsd.types.builtins.BuiltinType):
             if type_elem.accepts_multiple:
                 return [elem_type._default_qname.localname]
             else:
@@ -260,7 +261,8 @@ class ActionGenerator(object):
                 print("ERROR: Param conflicts with default: {}.{}"
                       .format(op_name, parameter_name))
 
-            if isinstance(input_type_obj, zeep.xsd.types.builtins.BuiltinType):  # pylint: disable=no-member
+            # pylint: disable=no-member
+            if isinstance(input_type_obj, zeep.xsd.types.builtins.BuiltinType):
                 parameter_type = input_type_obj._default_qname.localname
                 if parameter_type == "unsignedInt" or parameter_type == "int":
                     parameter_type = "integer"
