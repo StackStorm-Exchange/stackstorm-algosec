@@ -97,7 +97,7 @@ class RunOperation(Action):
         we need to convert them to snake case for the lookup
         :returns: dictionary with keys converted into peroper case
         """
-        wsdl_service = self.client.wsdl.services.values()[0]
+        wsdl_service = list(self.client.wsdl.services.values())[0]
         wsdl_operation = wsdl_service.ports.values()[0].binding._operations.__getitem__(operation)
         wsdl_op_elements = wsdl_operation.input.body.type.elements
         op_args = {}
