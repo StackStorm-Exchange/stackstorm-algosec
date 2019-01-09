@@ -98,7 +98,8 @@ class RunOperation(Action):
         :returns: dictionary with keys converted into peroper case
         """
         wsdl_service = list(self.client.wsdl.services.values())[0]
-        wsdl_operation = list(wsdl_service.ports.values())[0].binding._operations.__getitem__(operation)
+        wsdl_operation = list(wsdl_service.ports.values())[0]
+        wsdl_operation = wsdl_operation.binding._operations.__getitem__(operation)
         wsdl_op_elements = wsdl_operation.input.body.type.elements
         op_args = {}
         for snake_key, value in value_dict.items():
