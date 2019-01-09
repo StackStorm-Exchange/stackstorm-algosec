@@ -1,4 +1,4 @@
-from run_operation import RunOperation
+from .run_operation import RunOperation
 
 
 class RunLogin(RunOperation):
