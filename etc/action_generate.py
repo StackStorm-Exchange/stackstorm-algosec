@@ -72,7 +72,7 @@ class Cli:
         return args
 
     def examples(self):
-        print "examples:\n"\
+        print("examples:\n"\
             "  # fetch the latest WSDL from the AlgoSec server/\n"\
             "  ./action_generate.py fetch-wsdl -H host.domain.tld\n"\
             "\n"\
@@ -83,7 +83,7 @@ class Cli:
             "  ./action_generate.py generate\n"\
             "\n"\
             "  # gerenate actions into an alternate directory from a specific WSDL/\n"\
-            "  ./action_generate.py generate -d ../actions_new -w algosec_wsdl_new.xml\n"\
+            "  ./action_generate.py generate -d ../actions_new -w algosec_wsdl_new.xml\n")
 
 
 
