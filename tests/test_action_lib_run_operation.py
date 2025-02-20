@@ -38,12 +38,12 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         action.client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_13.xml")
         test_operation = 'createTicket'
         test_dict = {'ffws_header': {"version": "1.0", "opaque": ""},
-                    'session_id': 'test',
-                    'ticket': "test"}
+                     'session_id': 'test',
+                     'ticket': "test"}
 
         expected_dict = {'FFWSHeader': {"version": "1.0", "opaque": ""},
-                        'sessionId': 'test',
-                        'ticket': "test"}
+                         'sessionId': 'test',
+                         'ticket': "test"}
         result = action._sanitize_operation_args(test_operation, test_dict)
         self.assertEqual(result, expected_dict)
 
@@ -181,7 +181,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
                                connection['server'],
                                connection['wsdl_endpoint']))
         wsdl_url = action.build_wsdl_url(connection)
-        self.assertEquals(wsdl_url, expected_url)
+        self.assertEqual(wsdl_url, expected_url)
 
     def test_build_wsdl_url_port(self):
         action = self.get_action_instance({})
@@ -195,7 +195,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
                                connection['port'],
                                connection['wsdl_endpoint']))
         wsdl_url = action.build_wsdl_url(connection)
-        self.assertEquals(wsdl_url, expected_url)
+        self.assertEqual(wsdl_url, expected_url)
 
     def test_build_wsdl_url_missing_server(self):
         action = self.get_action_instance({})
@@ -213,7 +213,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         connection_name = 'full'
         connection = self.config_good['algosec'][connection_name]
         context = {'connection': connection,
-                  'kwargs_dict': kwargs_dict}
+                   'kwargs_dict': kwargs_dict}
 
         expected_session = "expected_session"
 
@@ -230,7 +230,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
             password=context['connection']['password'],
             domain=None)
 
-        self.assertEquals(result, expected_session)
+        self.assertEqual(result, expected_session)
 
     @mock.patch('lib.run_operation.zeep.Client')
     def test__pre_exec_kwargs(self, mock_client):
@@ -264,8 +264,8 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
 
         result_context, result_client = action._pre_exec(**kwargs_dict_copy)
         mock_client.assert_called_with(wsdl=wsdl_url)
-        self.assertEquals(result_client, mock_client.return_value.service)
-        self.assertEquals(result_context, expected_context)
+        self.assertEqual(result_client, mock_client.return_value.service)
+        self.assertEqual(result_context, expected_context)
 
     @mock.patch('lib.run_operation.zeep.Client')
     def test__pre_exec_config(self, mock_client):
@@ -297,8 +297,8 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
 
         result_context, result_client = action._pre_exec(**kwargs_dict_copy)
         mock_client.assert_called_with(wsdl=wsdl_url)
-        self.assertEquals(result_client, mock_client.return_value.service)
-        self.assertEquals(result_context, expected_context)
+        self.assertEqual(result_client, mock_client.return_value.service)
+        self.assertEqual(result_context, expected_context)
 
     @mock.patch('lib.run_operation.RunOperation._sanitize_operation_args')
     def test__exec_session(self, mock__sanitize_operation_args):
@@ -330,7 +330,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         self.assertFalse(mock_client.service.Login.called)
         mock_client.service.__getitem__.assert_called_with(context['operation'])
         mock_operation.assert_called_with(**expected_args)
-        self.assertEquals(result, expected_result)
+        self.assertEqual(result, expected_result)
 
     @mock.patch('lib.run_operation.RunOperation._sanitize_operation_args')
     def test__exec_login(self, mock__sanitize_operation_args):
@@ -367,7 +367,7 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
             domain=None)
         mock_client.service.__getitem__.assert_called_with(context['operation'])
         mock_operation.assert_called_with(**expected_args)
-        self.assertEquals(result, expected_result)
+        self.assertEqual(result, expected_result)
 
     def test__exec_login_bad_connection(self):
         action = self.get_action_instance(self.config_blank)
@@ -387,17 +387,17 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         action = self.get_action_instance(self.config_blank)
         client = zeep.Client(wsdl="./etc/fireflow_wsdl_2018_06_13.xml")
         expected = {"customFieldData": {"name": "abc123",
-                               "displayName": "new_field",
-                               "type": None,
-                               "maxValues": None,
-                               "category": None,
-                               "defaultValue": None,
-                               "validation": None}}
+                                        "displayName": "new_field",
+                                        "type": None,
+                                        "maxValues": None,
+                                        "category": None,
+                                        "defaultValue": None,
+                                        "validation": None}}
         type_class = client.get_type('ns0:customFieldData')
         obj = type_class(name=expected['customFieldData']['name'],
-                        displayName=expected['customFieldData']['displayName'])
+                         displayName=expected['customFieldData']['displayName'])
         result = action._post_exec(obj)
-        self.assertEquals(result, expected['customFieldData'])
+        self.assertEqual(result, expected['customFieldData'])
 
     @mock.patch("lib.run_operation.RunOperation._post_exec")
     @mock.patch("lib.run_operation.RunOperation._exec")
@@ -420,4 +420,4 @@ class TestActionLibRunOperation(AlgoSecActionTestCase):
         mock__pre_exec.assert_called_with(**kwargs_dict)
         mock__exec.assert_called_with(context, client)
         mock__post_exec.assert_called_with(exec_result)
-        self.assertEquals(result, post_exec_result)
+        self.assertEqual(result, post_exec_result)
