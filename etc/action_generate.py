@@ -95,7 +95,7 @@ class ActionGenerator(object):
     def load_template_params(self):
         params_yaml_str = self.jinja_render_file(ACTION_TEMPLATE_PATH,
                                                  {'operation_camel_case': ''})
-        params_dict = yaml.load(params_yaml_str)
+        params_dict = yaml.safe_load(params_yaml_str)
         params = params_dict['parameters'].keys()
         return params
 
