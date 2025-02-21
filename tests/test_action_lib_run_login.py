@@ -45,7 +45,7 @@ class TestActionLibRunLogin(AlgoSecActionTestCase):
             password=context['connection']['password'],
             domain=None)
 
-        self.assertEquals(result, {'session_id': expected_session})
+        self.assertEqual(result, {'session_id': expected_session})
 
     @mock.patch("lib.run_operation.RunOperation._pre_exec")
     def test_run_afa(self, mock__pre_exec):
@@ -75,4 +75,4 @@ class TestActionLibRunLogin(AlgoSecActionTestCase):
             Password=context['connection']['password'],
             Domain=None)
 
-        self.assertEquals(result, {'session_id': expected_session})
+        self.assertEqual(result, {'session_id': expected_session})
